@@ -1,9 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Ilumisoft.MergeDice
 {
     public class MainMenu : MonoBehaviour
     {
+        [SerializeField] private GameObject MainMenuPanel;
+        [SerializeField] private GameObject DailyRewardsPanel;
+
+
+        [SerializeField] private Button DailyRewardsBtn;
         void Update()
         {
             if (IsReturnButtonDown())
@@ -20,6 +26,12 @@ namespace Ilumisoft.MergeDice
         void QuitApplication()
         {
             Application.Quit();
+        }
+
+        public void ShowDailyRewardsPanel()
+        {
+            MainMenuPanel.SetActive(false);
+            DailyRewardsPanel.SetActive(true);
         }
     }
 }
