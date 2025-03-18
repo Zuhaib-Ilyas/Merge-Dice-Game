@@ -34,7 +34,7 @@ public class PopupDailyReward : Popup
 
     public void Setup()
     {
-        PopupController.Instance.Show<PopupUI>();
+       // PopupController.Instance.Show<PopupUI>();
         SetUpItems();
     }
 
@@ -86,7 +86,7 @@ public class PopupDailyReward : Popup
 
     public void OnClickBtnClaim()
     {
-        SoundController.Instance.PlayFX(SoundName.ClickButton);
+       // SoundController.Instance.PlayFX(SoundName.ClickButton);
         OnClaimReward(false);
     }
 
@@ -95,7 +95,7 @@ public class PopupDailyReward : Popup
         Data.PlayerData.LastDailyRewardClaimed = DateTime.Now.ToString();
         Data.PlayerData.CurrentDailyReward++;
 
-        currentItem.OnClaim(isX5Reward);
+        //currentItem.OnClaim(isX5Reward);
         
         Setup();
     }
