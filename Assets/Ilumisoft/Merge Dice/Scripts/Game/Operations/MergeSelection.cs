@@ -64,7 +64,7 @@ namespace Ilumisoft.MergeDice.Operations
                 {
                     NotificationEvents.Send(new NotificationMessage()
                     {
-                        Content = "Merged Six"
+                        Content = "Merged Six, You Have Unlocked Next Level"
                     });
 
                     GameEvents<SFXEventType>.Trigger(SFXEventType.MergedSix);

@@ -158,6 +158,16 @@ namespace NiobiumStudios
                 string lastClaimedStr = now.AddHours(debugTime.TotalHours).ToString(FMT);
                 PlayerPrefs.SetString(GetLastRewardTimeKey(), lastClaimedStr);
                 PlayerPrefs.SetInt(GetDebugTimeKey(), (int)debugTime.TotalHours);
+
+                //PlayerPrefs.SetInt("PlayerCoins", rewards[availableReward - 1].reward);
+                //PlayerPrefs.Save();
+
+                int previousCoins = PlayerPrefs.GetInt("PlayerCoins", 0); // Get previous coins (default to 0 if not set)
+                int currentReward = rewards[availableReward - 1].reward; // Get current reward
+                int updatedCoins = previousCoins + currentReward; // Add previous and current rewards
+
+                PlayerPrefs.SetInt("PlayerCoins", updatedCoins); // Save updated coins
+                PlayerPrefs.Save(); // Ensure the value is saved
             }
             else if (availableReward == 0)
             {
@@ -165,6 +175,7 @@ namespace NiobiumStudios
             }
 
             CheckRewards();
+            
         }
 
         //Returns the lastReward playerPrefs key depending on instanceId

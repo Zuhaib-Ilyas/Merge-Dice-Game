@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using System;
 using System.Collections.Generic;
+using TMPro;
 
 namespace NiobiumStudios
 {
@@ -45,6 +46,8 @@ namespace NiobiumStudios
         private List<DailyRewardUI> dailyRewardsUI = new List<DailyRewardUI>();
 
 		private DailyRewards dailyRewards;			// DailyReward Instance      
+		//[SerializeField] private GameObject moneyPopUp;			// DailyReward Instance      
+		[SerializeField] private TextMeshProUGUI coinsText;			// DailyReward Instance      
 
         void Awake()
         {
@@ -55,6 +58,7 @@ namespace NiobiumStudios
         void Start()
         {
             InitializeDailyRewardsUI();
+            coinsText.text = PlayerPrefs.GetInt("PlayerCoins").ToString();
 
             if (panelDebug)
                 panelDebug.SetActive(isDebug);
@@ -66,6 +70,8 @@ namespace NiobiumStudios
 				dailyRewards.ClaimPrize();
                 readyToClaim = false;
                 UpdateUI();
+               // moneyPopUp.SetActive(true);
+                coinsText.text= PlayerPrefs.GetInt("PlayerCoins").ToString();
             });
 
             buttonCloseReward.onClick.AddListener(() =>

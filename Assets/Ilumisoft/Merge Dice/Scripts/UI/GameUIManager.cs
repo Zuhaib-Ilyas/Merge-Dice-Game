@@ -13,6 +13,9 @@ namespace Ilumisoft.MergeDice
         GameObject gameOverUI = null;
 
         [SerializeField]
+        GameObject gameOverPopUp = null;
+
+        [SerializeField]
         OverlayCanvas overlayCanvas = null;
 
         private void OnEnable()
@@ -44,8 +47,15 @@ namespace Ilumisoft.MergeDice
         {
             yield return overlayCanvas.FadeIn();
             gameUI.gameObject.SetActive(false);
-            gameOverUI.gameObject.SetActive(true);
+            gameOverPopUp.gameObject.SetActive(true);
+          //  gameOverUI.gameObject.SetActive(true);
             yield return overlayCanvas.FadeOut();
+        }
+
+        public void ShowGameOverUIs()
+        {
+            gameOverPopUp.gameObject.SetActive(false);
+            gameOverUI.gameObject.SetActive(true);
         }
     }
 }
